@@ -5,8 +5,8 @@ import processing.core.PApplet;
 public class Main extends PApplet {
 
     public static Main client = null;
-    private static boolean[] charPressed = new boolean[500];
-    private static boolean[] codePressed = new boolean[500];
+    private static final boolean[] charPressed = new boolean[500];
+    private static final boolean[] codePressed = new boolean[500];
 
     public static final int DEFAULT_WIDTH = 1000;
     public static final int DEFAULT_HEIGHT = 800;
