@@ -1,9 +1,9 @@
-package loading;
+package splash;
 
 import main.State;
 
-public class LoadingState implements State {
-    LoadingState(){
+public class SplashState implements State {
+    SplashState(){
         setup();
     }
 
