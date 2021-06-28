@@ -20,7 +20,7 @@ public class Main extends PApplet {
     }
 
     public void draw() {
-
+        circle(100, 100, 100);
     }
 
     public void settings() {
