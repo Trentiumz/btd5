@@ -41,9 +41,8 @@ public class Tools {
         point = point.sub(endPoint1);
         // cosine of the angle from the point to the line
         float cosAng = line.dot(point) / line.mag() / point.mag();
-        // if the horizontal distance is larger than the line itself or if the , then return the distance
-        if (point.mag() * cosAng >= line.mag() || point.mag() * cosAng < 0)
-            return Math.min(line.dist(point), line.mag());
+        // if the horizontal distance is larger than the line itself or if the cosine goes "backwards", then return the distance
+        if (point.mag() * cosAng >= line.mag() || cosAng < 0) return Math.min(line.dist(point), line.mag());
             // otherwise, return the sin * magnitude of point
         else return (float) Math.sqrt(1 - cosAng * cosAng) * point.mag();
     }
