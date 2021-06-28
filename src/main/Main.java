@@ -32,7 +32,7 @@ public class Main extends PApplet {
             charPressed[key] = true;
         }
         if(keyCode < codePressed.length){
-            codePressed[key] = true;
+            codePressed[keyCode] = true;
         }
     }
 
@@ -41,7 +41,7 @@ public class Main extends PApplet {
             charPressed[key] = false;
         }
         if(keyCode < codePressed.length){
-            codePressed[key] = false;
+            codePressed[keyCode] = false;
         }
     }
 
