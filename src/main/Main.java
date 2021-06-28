@@ -25,6 +25,7 @@ public class Main extends PApplet {
     public void setup() {
         frameRate(DEFAULT_FRAME_RATE);
         activeState = new MainMenu();
+        activeState.setup();
     }
 
     public void draw() {
@@ -39,6 +40,7 @@ public class Main extends PApplet {
         if(keyCode < codePressed.length){
             codePressed[keyCode] = true;
         }
+        activeState.keyPressed();
     }
 
     public void keyReleased(){
@@ -48,6 +50,15 @@ public class Main extends PApplet {
         if(keyCode < codePressed.length){
             codePressed[keyCode] = false;
         }
+        activeState.keyReleased();
+    }
+
+    public void mousePressed(){
+        activeState.mousePressed();
+    }
+
+    public void mouseReleased(){
+        activeState.mouseReleased();
     }
 
     public void settings() {
