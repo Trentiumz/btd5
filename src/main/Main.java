@@ -1,3 +1,5 @@
+package main;
+
 import processing.core.PApplet;
 
 public class Main extends PApplet {
@@ -6,26 +8,26 @@ public class Main extends PApplet {
     public static final int defaultHeight = 800;
     public static final int defaultFrameRate = 30;
 
-    Main(){
-        if(client != null){
-            throw new RuntimeException("Singleton Main Client was Initialized a second time!");
+    public Main() {
+        if (client != null) {
+            throw new RuntimeException("Singleton main.Main Client was Initialized a second time!");
         }
         client = this;
     }
 
-    public void setup(){
+    public void setup() {
         frameRate(defaultFrameRate);
     }
 
-    public void draw(){
+    public void draw() {
 
     }
 
-    public void settings(){
+    public void settings() {
         size(defaultWidth, defaultHeight);
     }
 
-    public static void main(String[] args){
-        PApplet.main("Main");
+    public static void main(String[] args) {
+        PApplet.main(new String[]{"main.Main"});
     }
 }
