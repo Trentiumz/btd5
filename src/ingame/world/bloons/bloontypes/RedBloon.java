@@ -14,6 +14,11 @@ public class RedBloon extends BloonType {
     }
 
     @Override
+    public BloonType[] getParent() {
+        return new BloonType[]{new BlueBloon(center, radius)};
+    }
+
+    @Override
     public void tick() {
 
     }
