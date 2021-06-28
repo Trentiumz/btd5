@@ -4,9 +4,9 @@ import processing.core.PApplet;
 
 public class Main extends PApplet {
     public static Main client = null;
-    public static final int defaultWidth = 1000;
-    public static final int defaultHeight = 800;
-    public static final int defaultFrameRate = 30;
+    public static final int DEFAULT_WIDTH = 1000;
+    public static final int DEFAULT_HEIGHT = 800;
+    public static final int DEFAULT_FRAME_RATE = 30;
 
     public Main() {
         if (client != null) {
@@ -16,7 +16,7 @@ public class Main extends PApplet {
     }
 
     public void setup() {
-        frameRate(defaultFrameRate);
+        frameRate(DEFAULT_FRAME_RATE);
     }
 
     public void draw() {
@@ -24,7 +24,7 @@ public class Main extends PApplet {
     }
 
     public void settings() {
-        size(defaultWidth, defaultHeight);
+        size(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
 
     public static void main(String[] args) {
