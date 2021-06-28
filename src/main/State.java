@@ -1,5 +1,9 @@
 package main;
 
+/**
+ * States
+ */
+
 public interface State {
     void setup();
     void tick();
