@@ -1,10 +1,10 @@
-package mainmenu;
+package menu;
 
 import main.State;
 
-public class MainMenu implements State {
+public class MenuState implements State {
 
-    public MainMenu() {
+    public MenuState() {
         setup();
     }
 

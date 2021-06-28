@@ -1,6 +1,6 @@
 package main;
 
-import mainmenu.MainMenu;
+import menu.MenuState;
 import processing.core.PApplet;
 
 public class Main extends PApplet {
@@ -32,7 +32,7 @@ public class Main extends PApplet {
 
     public void setup() {
         frameRate(DEFAULT_FRAME_RATE);
-        activeState = new MainMenu();
+        activeState = new MenuState();
         activeState.setup();
     }
 
