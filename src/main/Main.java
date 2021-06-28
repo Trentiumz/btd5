@@ -3,6 +3,7 @@ package main;
 import processing.core.PApplet;
 
 public class Main extends PApplet {
+
     public static Main client = null;
     public static final int DEFAULT_WIDTH = 1000;
     public static final int DEFAULT_HEIGHT = 800;
