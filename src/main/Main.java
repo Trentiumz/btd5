@@ -15,6 +15,14 @@ public class Main extends PApplet {
     public static final int DEFAULT_HEIGHT = 800;
     public static final int DEFAULT_FRAME_RATE = 30;
 
+    public static void main(String[] args) {
+        PApplet.main(new String[]{"main.Main"});
+    }
+
+    public void settings() {
+        size(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+    }
+
     public Main() {
         if (client != null) {
             throw new RuntimeException("Singleton main.Main Client was Initialized a second time!");
@@ -59,14 +67,6 @@ public class Main extends PApplet {
 
     public void mouseReleased(){
         activeState.mouseReleased();
-    }
-
-    public void settings() {
-        size(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-    }
-
-    public static void main(String[] args) {
-        PApplet.main(new String[]{"main.Main"});
     }
 
     /**
