@@ -27,5 +27,6 @@ public class Assets {
 
     public static void load() {
         redBloon = client.loadImage("sprites/bloon/redBloon.png");
+        blueBloon = client.loadImage("sprites/bloon/blueBloon.png");
     }
 }
