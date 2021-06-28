@@ -14,6 +14,11 @@ public class GreenBloon extends BloonType {
     }
 
     @Override
+    public BloonType[] getParent() {
+        return new BloonType[]{new YellowBloon(center, radius)};
+    }
+
+    @Override
     public void tick() {
 
     }

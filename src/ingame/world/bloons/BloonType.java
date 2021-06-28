@@ -9,6 +9,7 @@ public abstract class BloonType extends Entity {
     }
 
     public abstract BloonType[] getChild();
+    public abstract BloonType[] getParent();
     public abstract void tick();
     public abstract void render();
 }
