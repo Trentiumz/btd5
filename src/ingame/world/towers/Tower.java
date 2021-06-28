@@ -2,6 +2,7 @@ package ingame.world.towers;
 
 import ingame.world.Entity;
 import processing.core.PImage;
+import processing.core.PVector;
 
 public abstract class Tower extends Entity {
 
@@ -18,7 +19,12 @@ public abstract class Tower extends Entity {
     int framesPerAttack;
     int attackTimer;
 
-    public Tower(int leftLevel, int rightLevel, PImage upgradingIcon, int[] leftCosts, int[] rightCosts, int initialCost, String displayName, String[] targetType, int framesPerAttack) {
+    float towerRange;
+
+    public Tower(int leftLevel, int rightLevel, PImage upgradingIcon, int[] leftCosts, int[] rightCosts, int initialCost,
+                 String displayName, String[] targetType, int framesPerAttack, PVector center, float towerArea, float towerRange) {
+        super(center, towerArea);
+        this.towerRange = towerRange;
         this.upgradingIcon = upgradingIcon;
         this.leftLevel = leftLevel;
         this.rightLevel = rightLevel;
@@ -33,8 +39,10 @@ public abstract class Tower extends Entity {
         this.attackTimer = framesPerAttack;
     }
 
-    public Tower(PImage upgradingIcon, int[] leftCosts, int[] rightCosts, int initialCost, String displayName, int framesPerAttack) {
-        this(0, 0, upgradingIcon, leftCosts, rightCosts, initialCost, displayName, new String[]{"First", "Last", "Close", "Strong"}, framesPerAttack);
+    public Tower(PImage upgradingIcon, int[] leftCosts, int[] rightCosts, int initialCost, String displayName,
+                 int framesPerAttack, PVector center, float towerArea, float towerRange) {
+        this(0, 0, upgradingIcon, leftCosts, rightCosts, initialCost, displayName,
+                new String[]{"First", "Last", "Close", "Strong"}, framesPerAttack, center, towerArea, towerRange);
     }
 
     public void tick(){
