@@ -1,5 +1,6 @@
 package main;
 
+import mainmenu.MainMenu;
 import processing.core.PApplet;
 
 public class Main extends PApplet {
@@ -7,6 +8,8 @@ public class Main extends PApplet {
     public static Main client = null;
     private static final boolean[] charPressed = new boolean[500];
     private static final boolean[] codePressed = new boolean[500];
+
+    private State activeState;
 
     public static final int DEFAULT_WIDTH = 1000;
     public static final int DEFAULT_HEIGHT = 800;
@@ -21,10 +24,12 @@ public class Main extends PApplet {
 
     public void setup() {
         frameRate(DEFAULT_FRAME_RATE);
+        activeState = new MainMenu();
     }
 
     public void draw() {
-        rect(100, 100, 100, 100);
+        activeState.tick();
+        activeState.render();
     }
 
     public void keyPressed(){
