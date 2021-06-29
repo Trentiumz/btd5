@@ -1,10 +1,14 @@
 package ingame.world.bloons;
 
+// TODO use better design patterns once game is finished
 public class Bloon {
-    BloonType curBloon;
-    BloonType startingBloon; // a reference to the starting balloon so that regrows don't overgrow?
+    private int curBloon;
 
-    public Bloon(BloonType startingBloon) {
-        this.curBloon = startingBloon;
+    Bloon(){
+
+    }
+
+    public void damage(int damage){
+
     }
 }
