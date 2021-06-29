@@ -9,11 +9,12 @@ import java.util.HashSet;
 
 public class World {
     public static World curWorld;
+    public ArrayList<PVector> path;
+
     private HashSet<Bloon> bloons;
     private ArrayList<Tower> towers;
-    ArrayList<PVector> path;
-    ArrayList<Entity> vanity;
-    ArrayList<Entity> water;
+    private ArrayList<Entity> vanity;
+    private ArrayList<Entity> water;
 
     public void remove(Bloon toRemove){
 
@@ -21,4 +22,10 @@ public class World {
     public void add(Bloon toAdd){
 
     }
+
+    public boolean canAddTower(boolean onWater, Entity tower){
+        // TODO code in logic
+        return false;
+    }
+
 }
