@@ -1,13 +1,10 @@
 package ingame.world.bloons;
 
-import ingame.world.Entity;
+public class Bloon {
+    BloonType curBloon;
+    BloonType startingBloon; // a reference to the starting balloon so that regrows don't overgrow?
 
-public abstract class Bloon extends Entity {
-
-    abstract void tick();
-
-    @Override
-    public void render() {
-
+    public Bloon(BloonType startingBloon) {
+        this.curBloon = startingBloon;
     }
 }
