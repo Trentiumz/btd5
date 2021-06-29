@@ -1,11 +1,12 @@
 package ingame.world.bloons;
 
+import ingame.world.BloonType;
 import ingame.world.DamageType;
 import ingame.world.World;
 
 public class BlueBloon extends Bloon {
-    public BlueBloon(boolean regen, boolean camo) {
-        super(regen, camo);
+    public BlueBloon(boolean regen, boolean camo, BloonType maxBloon) {
+        super(regen, camo, maxBloon);
     }
 
     @Override
@@ -13,10 +14,15 @@ public class BlueBloon extends Bloon {
         if (layers > 0) {
             world.remove(this);
 
-            Bloon red = new RedBloon(regen, camo);
+            Bloon red = new RedBloon(regen, camo, maxBloon);
             world.add(red);
 
             red.damage(layers - 1, damageType, world);
         }
+    }
+
+    @Override
+    public void regenerate(World world) {
+
     }
 }

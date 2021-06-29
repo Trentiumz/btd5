@@ -14,12 +14,14 @@ public abstract class Bloon {
     protected boolean camo;
 
 
-    public Bloon(boolean regen, boolean camo) {
+    public Bloon(boolean regen, boolean camo, BloonType maxBloon) {
         this.regen = regen;
         this.camo = camo;
+        this.maxBloon = maxBloon;
+        regenTimer = 0;
     }
 
-    public void tick(){
+    public void tick() {
         if(regen){
             regenTimer -= 1;
             if(regenTimer <= 0){
@@ -29,7 +31,7 @@ public abstract class Bloon {
         }
     }
 
-    public void render(){
+    public void render() {
 
     }
 
