@@ -2,31 +2,37 @@ package ingame.world.bloons;
 
 import ingame.world.BloonType;
 import ingame.world.DamageType;
+import ingame.world.World;
 
-// TODO use better design patterns once game is finished
-public class Bloon {
+public abstract class Bloon {
 
     public static final int REGEN_COOLDOWN = 60;
 
-    private BloonType curBloon;
-    private BloonType maxBloon;
-    private int health;
-    private int regenTimer;
-    private boolean regen;
-    private boolean camo;
-    private boolean dartResistant;
-    private boolean explosionResistant;
-    private boolean freezeResistant;
+    protected BloonType maxBloon;
+    protected int regenTimer;
+    protected boolean regen;
+    protected boolean camo;
 
 
-    public Bloon() {
-
+    public Bloon(boolean regen, boolean camo) {
+        this.regen = regen;
+        this.camo = camo;
     }
 
-    public void damage(int damage, DamageType damageType) {
-        health -= damage;
-        if (health <= 0) {
-
+    public void tick(){
+        if(regen){
+            regenTimer -= 1;
+            if(regenTimer <= 0){
+                regenerate(World.curWorld);
+                regenTimer = REGEN_COOLDOWN;
+            }
         }
     }
+
+    public void render(){
+
+    }
+
+    public abstract void damage(int layers, DamageType damageType, World world);
+    public abstract void regenerate(World world);
 }
