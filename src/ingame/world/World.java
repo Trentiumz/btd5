@@ -18,6 +18,15 @@ public class World {
     private ArrayList<Entity> vanity;
     private ArrayList<Entity> water;
 
+    private World() {}
+
+    public static World createWorld() {
+       if (curWorld == null) {
+           curWorld = new World();
+       }
+       return curWorld;
+    }
+
     public void remove(Bloon toRemove){
 
     }
