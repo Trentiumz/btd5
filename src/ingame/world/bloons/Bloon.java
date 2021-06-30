@@ -72,6 +72,10 @@ public abstract class Bloon extends Entity {
         regenTimer = 0;
     }
 
+    /**
+     *
+     */
+
     public void tick() {
         if(regen){
             regenTimer -= 1;
@@ -82,10 +86,40 @@ public abstract class Bloon extends Entity {
         }
     }
 
+    /**
+     *
+     */
+
     public void render() {
 
     }
 
+    /**
+     * Skeletal method for the damage system for bloons.
+     *
+     * @param layers
+     * The amount of layers to pop. This method is called recursively,
+     * with the layers decreasing until none are left.
+     *
+     * @param damageType
+     * The type of damage that was given to the bloon.
+     * @see DamageType
+     *
+     * @param world
+     * The world singleton.
+     * @see World
+     */
+
     public abstract void damage(int layers, DamageType damageType, World world);
+
+    /**
+     * Regenerates the bloon to the one above it in the hierarchy, should the bloon
+     * have the regeneration property set to true. There is also a check to make sure
+     * the bloon can only regenerate up to the maxBloon type.
+     * @param world
+     * The world singleton.
+     * @see World
+     */
+
     public abstract void regenerate(World world);
 }
