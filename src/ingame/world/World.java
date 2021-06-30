@@ -7,24 +7,54 @@ import processing.core.PVector;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 
 public class World {
-    public static World curWorld;
-    public ArrayList<PVector> path;
+    private static World curWorld;
+    public List<PVector> path;
 
-    private HashSet<Bloon> bloons;
-    private HashSet<Projectile> projectiles;
-    private ArrayList<Tower> towers;
-    private ArrayList<Entity> vanity;
-    private ArrayList<Entity> water;
+    private Set<Bloon> bloons;
+    private Set<Projectile> projectiles;
+    private List<Tower> towers;
+    private List<Entity> vanity;
+    private List<Entity> water;
 
-    private World() {}
+    private World() {
+        setup();
+    }
 
-    public static World createWorld() {
+    public static World getWorld() {
        if (curWorld == null) {
            curWorld = new World();
        }
        return curWorld;
+    }
+
+    private void setup() {
+        path = new ArrayList<>();
+        bloons = new HashSet<>();
+        projectiles = new HashSet<>();
+        towers = new ArrayList<>();
+        vanity = new ArrayList<>();
+        water = new ArrayList<>();
+    }
+
+    public void tick() {
+        for (Bloon bloon : bloons) {
+            bloon.tick();
+        }
+        for (Projectile projectile : projectiles) {
+            projectile.tick();
+        }
+        for (Tower tower : towers) {
+            tower.tick();
+        }
+    }
+
+    public void render() {
+
     }
 
     public void remove(Bloon toRemove){
