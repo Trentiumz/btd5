@@ -1,6 +1,7 @@
 package ingame.world;
 
 import ingame.world.bloons.Bloon;
+import ingame.world.towers.Projectile;
 import ingame.world.towers.Tower;
 import processing.core.PVector;
 
@@ -12,6 +13,7 @@ public class World {
     public ArrayList<PVector> path;
 
     private HashSet<Bloon> bloons;
+    private HashSet<Projectile> projectiles;
     private ArrayList<Tower> towers;
     private ArrayList<Entity> vanity;
     private ArrayList<Entity> water;
