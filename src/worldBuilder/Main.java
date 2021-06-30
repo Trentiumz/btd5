@@ -9,6 +9,7 @@ public class Main extends PApplet {
     ArrayList<PVector> pairs = new ArrayList<>();
     int curState = 0;
     int curInd = 0;
+    public static final String curWorld = "";
 
     public void settings() {
         size(400, 400);
