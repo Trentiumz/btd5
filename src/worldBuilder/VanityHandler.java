@@ -5,8 +5,8 @@ import processing.core.PVector;
 import java.util.ArrayList;
 
 public class VanityHandler extends State {
-    ArrayList<Circle> circles;
-    PVector curCenter;
+    ArrayList<Circle> circles; // list of circles
+    PVector curCenter; // the current center
 
     VanityHandler(Main owner) {
         super(owner);
@@ -19,9 +19,12 @@ public class VanityHandler extends State {
 
     @Override
     void render() {
+        // fill in the circles with a slightly red fill
         instance.fill(255, 0, 0, 50);
         instance.noStroke();
         for (Circle circle : circles) instance.circle(circle.center.x, circle.center.y, circle.radius);
+
+        // if we "selected" a circle, draw an outline of the circle
         if (curCenter != null) {
             instance.fill(0, 0, 0, 0);
             instance.stroke(255);
@@ -32,6 +35,7 @@ public class VanityHandler extends State {
 
     @Override
     void mousePressed() {
+        // select a circle if it's unselected, put the circle in the list if it was selected
         if (curCenter == null) curCenter = new PVector(instance.mouseX, instance.mouseY);
         else {
             circles.add(new Circle(curCenter, 2 * distanceFromCenter()));
@@ -41,9 +45,11 @@ public class VanityHandler extends State {
 
     @Override
     void keyPressed() {
-        if(instance.key == 'z') {
+        if (instance.key == 'z') {
+            // if z is pressed, then try to remove the last circle
             if (circles.size() > 0) circles.remove(circles.size() - 1);
-        } else{
+        } else {
+            // otherwise, move on to the next state
             instance.curState = new WaterHandler(instance);
             instance.vanityCircles = circles;
         }
@@ -55,6 +61,7 @@ public class VanityHandler extends State {
     }
 
     private float distanceFromCenter() {
+        // get the distance of the mouse from the current center
         return new PVector(instance.mouseX, instance.mouseY).sub(curCenter).mag();
     }
 }
