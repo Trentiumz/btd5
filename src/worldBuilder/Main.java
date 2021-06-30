@@ -11,6 +11,7 @@ public class Main extends PApplet {
     int curInd = 0;
     public static final String curWorld = "";
 
+
     public void settings() {
         size(400, 400);
     }
@@ -24,13 +25,6 @@ public class Main extends PApplet {
         if (curState == 0) {
             if (mousePressed) {
                 pairs.add(new PVector(mouseX, mouseY));
-            }
-        }
-        if (curState == 1) {
-            fill(0);
-            ellipse(pairs.get(curInd).x, pairs.get(curInd).y, 30, 30);
-            if (curInd < pairs.size() - 1) {
-                curInd++;
             }
         }
     }
