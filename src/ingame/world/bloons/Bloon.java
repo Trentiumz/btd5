@@ -80,7 +80,7 @@ public abstract class Bloon extends Entity {
         if(regen){
             regenTimer -= 1;
             if(regenTimer <= 0){
-                regenerate(World.curWorld);
+                regenerate(World.getWorld());
                 regenTimer = REGEN_COOLDOWN;
             }
         }
