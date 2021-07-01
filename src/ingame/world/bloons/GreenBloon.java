@@ -5,8 +5,8 @@ import ingame.world.DamageType;
 import ingame.world.World;
 import processing.core.PVector;
 
-public class BlueBloon extends Bloon {
-    public BlueBloon(boolean regen, boolean camo, BloonType maxBloon, PVector center) {
+public class GreenBloon extends Bloon {
+    public GreenBloon(boolean regen, boolean camo, BloonType maxBloon, PVector center) {
         super(regen, camo, maxBloon, center, 5);
     }
 
@@ -15,18 +15,15 @@ public class BlueBloon extends Bloon {
         if (layers > 0) {
             world.remove(this);
 
-            Bloon red = new RedBloon(regen, camo, maxBloon, center);
-            world.add(red);
+            Bloon blue = new BlueBloon(regen, camo, maxBloon, center);
+            world.add(blue);
 
-            red.damage(layers - 1, damageType, world);
+            blue.damage(layers - 1, damageType, world);
         }
     }
 
     @Override
     public void regenerate(World world) {
-        if (maxBloon != BloonType.BLUE) {
-            world.remove(this);
-            world.add(new GreenBloon(regen, camo, maxBloon, center));
-        }
+
     }
 }

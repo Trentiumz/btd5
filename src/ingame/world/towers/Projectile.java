@@ -1,4 +1,4 @@
-package ingame.world.projectiles;
+package ingame.world.towers;
 
 import ingame.world.Entity;
 import processing.core.PVector;
